@@ -9,12 +9,13 @@ ec2details = ec2client.describe_instances()
 
 a=[]
 b=[]
+c=[]
 
 for i in ec2details['Reservations']:
     for ii in (i['Instances']):
         a.append((ii["InstanceId"]))
         b.append(ii["State"]["Code"])
-
+        c.append(ii["State"]["Name"])
 
 for i in range(len(a)):
     if b[i] == 16:
@@ -24,4 +25,4 @@ for i in range(len(a)):
         ec2client.start_instances(InstanceIds=a, DryRun=False)
         print('The instance '+a[i]+' is started')
     else:
-        print(a)
+        print('The instance '+a[i]+' is '+c[i])
