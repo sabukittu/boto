@@ -1,4 +1,4 @@
-#!/Users/kittusabu/Documents/boto3_learn/venv/bin/python
+#!/usr/bin/env python
 
 import sys
 import boto3
